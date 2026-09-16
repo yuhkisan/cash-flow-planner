@@ -1,3 +1,3 @@
 export default function Home() {
-  return <main>New React Router App</main>;
+  return <main>Cash Flow Planner</main>;
 }
