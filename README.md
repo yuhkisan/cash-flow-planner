@@ -20,6 +20,34 @@
 - PostgreSQL
 - Docker
 
+## 開発
+
+前提: Node.js 24+ / Docker
+
+```bash
+npm install
+docker compose up -d postgres
+```
+
+別々のターミナルで起動する。
+
+```bash
+npm run dev:backend
+npm run dev:frontend
+```
+
+- Frontend: http://localhost:5173
+- API health check: http://localhost:3000/health
+
+確認コマンド:
+
+```bash
+npm run typecheck
+npm test
+npm run test:integration --workspace=backend
+npm run build
+```
+
 ## 方針
 
 個人のお金と個人事業のお金を分けて管理しつつ、全体では一つの将来財務として確認できるようにする。
