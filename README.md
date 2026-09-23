@@ -20,6 +20,36 @@
 - PostgreSQL
 - Docker
 
+## 開発
+
+現段階はAPIとDBまで。フロントエンドは後続のPRで追加する。
+
+前提: Node.js 24.15+ / Docker
+
+```bash
+npm install
+docker compose up -d postgres
+```
+
+APIを起動する。
+
+```bash
+npm run dev:backend
+```
+
+- API health check: http://localhost:3000/health
+
+PostgreSQLに接続できない場合、APIは起動できない。DBへの `SELECT 1` は統合テストで確認する。
+
+確認コマンド:
+
+```bash
+npm run typecheck
+npm test
+npm run test:integration --workspace=backend
+npm run build
+```
+
 ## 方針
 
 個人のお金と個人事業のお金を分けて管理しつつ、全体では一つの将来財務として確認できるようにする。
