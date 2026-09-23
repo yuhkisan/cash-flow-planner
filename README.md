@@ -20,6 +20,16 @@
 - PostgreSQL
 - Docker
 
+## 開発用DB
+
+PostgreSQLはDockerで起動します。
+
+```sh
+docker compose up -d postgres
+```
+
+停止するには `docker compose down` を実行します。データを残すため、通常は `-v` を付けません。
+
 ## 方針
 
 個人のお金と個人事業のお金を分けて管理しつつ、全体では一つの将来財務として確認できるようにする。
