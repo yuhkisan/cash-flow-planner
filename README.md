@@ -20,6 +20,42 @@
 - PostgreSQL
 - Docker
 
+## 開発
+
+現段階はAPIとDBまで。フロントエンドは後続のPRで追加する。
+
+前提: Node.js 24.15+ / Docker
+
+```bash
+cp .env.example .env
+npm ci
+docker compose up -d --wait postgres
+```
+
+`.env` のDB設定はDocker ComposeとAPIで共通して使う。既存のDBボリュームは、設定値を変えても自動で初期化し直されない。
+
+APIを起動する。
+
+```bash
+npm run dev:backend
+```
+
+- API health check: http://localhost:3000/health
+
+PostgreSQLに接続できない場合、APIは起動できない。`/health` は起動確認用で、DBへの `SELECT 1` は統合テストで確認する。
+
+確認コマンド:
+
+```bash
+npm run typecheck
+npm test
+npm run test:integration --workspace=backend
+npm run build
+npm run smoke:backend
+```
+
+終了後は `docker compose down` でDBを停止できる。通常はデータを残すため `-v` を付けない。
+
 ## 方針
 
 個人のお金と個人事業のお金を分けて管理しつつ、全体では一つの将来財務として確認できるようにする。

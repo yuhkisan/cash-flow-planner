@@ -1,0 +1,16 @@
+{
+  "name": "cash-flow-planner",
+  "private": true,
+  "version": "0.0.0",
+  "workspaces": ["backend"],
+  "engines": {
+    "node": ">=24.15.0"
+  },
+  "scripts": {
+    "dev:backend": "npm run start:dev --workspace=backend",
+    "build": "npm run build --workspaces",
+    "smoke:backend": "node scripts/smoke-backend.mjs",
+    "typecheck": "npm run typecheck --workspaces",
+    "test": "npm run test --workspaces"
+  }
+}
