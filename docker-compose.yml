@@ -1,3 +1,5 @@
+name: cash-flow-planner
+
 services:
   postgres:
     image: postgres:17-alpine
